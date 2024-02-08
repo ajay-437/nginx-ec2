@@ -12,6 +12,6 @@ resource "aws_instance" "foo" {
       Name = "TF-Instance"   
 
 }
-  
+}
 
 
