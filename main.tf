@@ -1,17 +1,17 @@
-#
+
 terraform{
-required providers{
-aws= {
-source = "hashicorp/aws"
-version = "~> 4.0"
-}
-}
+	required providers{
+		aws= {
+			source = "hashicorp/aws"
+			version = "~> 4.0"
+			}
+		}
 }
 provider "aws" {
      region = "ca-central-1"
      profile = "terraform-user"
-    #access_key = "AKIAYS2NVRSRPUD5FP5T"
-	  #secret_key = "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"
+    access_key = "AKIAYS2NVRSRPUD5FP5T"
+	  secret_key = "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"
     }
 resource "aws_instance" "nginx-ins" {
   ami           = "ami-0a2e7efb4257c0907"  
