@@ -2,7 +2,7 @@
 
 provider "aws" {
      region = "ca-central-1"
- profile = "terraform-user"
+ profile =  "jenkins-user"
     
     }
 resource "aws_instance" "foo" {
