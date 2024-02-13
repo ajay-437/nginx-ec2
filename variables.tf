@@ -3,6 +3,11 @@ variable "aws_region" {
   type        = string
   default     = "ca-central-1"
 }
+variable "avl_zone" {
+   type        = string
+   description = "zone"
+   default     = "ca-central-1a7" 
+}
 variable "ami" {
    type        = string
    description = "Ubuntu AMI ID"
