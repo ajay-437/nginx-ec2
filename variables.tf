@@ -6,7 +6,7 @@ variable "aws_region" {
 variable "avl_zone" {
    type        = string
    description = "zone"
-   default     = "ca-central-1a7" 
+   default     = "ca-central-1a" 
 }
 variable "ami" {
    type        = string
