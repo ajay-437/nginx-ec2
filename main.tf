@@ -8,7 +8,7 @@ resource "aws_instance" "foo" {
   key_name   = "aws-key"
 
    instance_type = var.instance_type
-   subnet_id = aws_subnet.public-subnet.id
+   subnet_id = aws_subnet.pb-subnet.id
    vpc_security_group_ids = [ aws_security_group.aws-sg.id ]
  
  tags = {
