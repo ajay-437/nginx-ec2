@@ -20,44 +20,44 @@ resource "aws_internet_gateway" "internet-gateway" {
   }
 }
 
-resource "aws_subnet" "public-subnet" {
+resource "aws_subnet" "pb-subnet" {
     vpc_id = aws_vpc.vpc.id
     cidr_block = "172.0.1.0/24"
-    availability_zone = "ca-central-1a"
+    availability_zone = var.aws_region
     map_public_ip_on_launch = true
 tags = {
-    Name = "PublicSubnet"
+    Name = "Public-Subnet"
   
 }
   
 }
 
-resource "aws_route_table" "public-route-table" {
+resource "aws_route_table" "pb-route-table" {
     vpc_id = aws_vpc.vpc.id 
     route {
         cidr_block = "0.0.0.0/0"
         gateway_id =  aws_internet_gateway.internet-gateway.id  
          }
 tags = {
-  Name = "PublicRT"
+  Name = "Public-RT"
 }
   
 }
 
-resource "aws_route_table_association" "public-subnet-route-table-association" {
-    subnet_id = aws_subnet.public-subnet.id
-    route_table_id = aws_route_table.public-route-table.id
+resource "aws_route_table_association" "pb-subnet-route-table-association" {
+    subnet_id = aws_subnet.pb-subnet.id
+    route_table_id = aws_route_table.pb-route-table.id
   
 }
 
-resource "aws_subnet" "private-subnet" {
+resource "aws_subnet" "pv-subnet" {
     vpc_id = aws_vpc.vpc.id
      cidr_block = "172.0.2.0/24"
-     availability_zone = "ca-central-1a"
+     availability_zone = var.aws_region
      map_public_ip_on_launch = false
 
      tags = {
-       Name = "Privatesubnet"
+       Name = "Private-subnet"
      }
   
 }
