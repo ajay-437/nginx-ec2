@@ -1,15 +1,24 @@
 provider "aws" {
-     region = "ca-central-1"
+     region = var.aws_region
         
   
 }
 resource "aws_instance" "foo" {
-  ami           = "ami-0a2e7efb4257c0907"
+  ami           = var.ami
   key_name   = "aws-key"
 
-   instance_type = "t2.micro"
+   instance_type = var.instance_type
+   subnet_id = aws_subnet.public-subnet.id
+   vpc_security_group_ids = [ aws_security_group.aws-sg.id ]
  
  tags = {
-    Name = "download "
+    Name = var.name_tag
+
   }
+user_data = <<-EOF
+              #!/bin/bash
+              sudo apt-get update
+              sudo apt-get install -y nginx
+              EOF  
+      
 }
