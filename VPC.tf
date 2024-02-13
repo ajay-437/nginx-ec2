@@ -23,7 +23,7 @@ resource "aws_internet_gateway" "internet-gateway" {
 resource "aws_subnet" "pb-subnet" {
     vpc_id = aws_vpc.vpc.id
     cidr_block = "172.0.1.0/24"
-    availability_zone = var.aws_region
+    availability_zone = "ca-central-1a"
     map_public_ip_on_launch = true
 tags = {
     Name = "Public-Subnet"
