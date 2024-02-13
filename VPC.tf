@@ -1,6 +1,6 @@
 # Create VPC
 resource "aws_vpc" "vpc" {
-  cidr_block = "172.0.0.0/16"
+  cidr_block = var.cidr
   instance_tenancy = "default"
   enable_dns_hostnames = true
   assign_generated_ipv6_cidr_block = true
